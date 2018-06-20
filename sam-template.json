@@ -1,0 +1,59 @@
+{
+	"AWSTemplateFormatVersion": "2010-09-09",
+	"Transform": "AWS::Serverless-2016-10-31",
+	"Description": "Twitter List Retweeter",
+	"Parameters": {
+		"TwitterConsumerKey": {
+			"Type": "String",
+			"Description": "Twitter consumer key for application"
+		},
+		"TwitterConsumerSecret": {
+			"Type": "String",
+			"Description": "Twitter consumer secret for application"
+		},
+		"TwitterAccessToken": {
+			"Type": "String",
+			"Description": "Twitter access token for user to tweet as"
+		},
+		"TwitterAccessTokenSecret": {
+			"Type": "String",
+			"Description": "Twitter access token secret for user to tweet as"
+		},
+		"TwitterListSlug": {
+			"Type": "String",
+			"Description": "Twitter list slug to retweet from"
+		}
+	},
+	"Resources": {
+		"ListRetweeterFunction": {
+			"Type": "AWS::Serverless::Function",
+			"Properties": {
+				"FunctionName": { "Fn::Sub": "${AWS::StackName}-ListRetweeter" },
+				"Description": "List Retweeter function",
+				"CodeUri": "src/list-retweeter/",
+				"Handler": "index.handler",
+				"Runtime": "nodejs8.10",
+				"MemorySize": 128,
+				"Timeout": 30,
+				"Environment": {
+					"Variables": {
+						"TwitterConsumerKey": { "Ref": "TwitterConsumerKey" },
+						"TwitterConsumerSecret": { "Ref": "TwitterConsumerSecret" },
+						"TwitterAccessToken": { "Ref": "TwitterAccessToken" },
+						"TwitterAccessTokenSecret": { "Ref": "TwitterAccessTokenSecret" },
+						"TwitterListSlug": { "Ref": "TwitterListSlug" }
+					}
+				},
+				"Events": {
+					"Timer": {
+						"Type": "Schedule",
+						"Properties": {
+							"Schedule": "rate(15 minutes)",
+							"Input": "{}"
+						}
+					}
+				}
+			}
+		}
+	}
+}

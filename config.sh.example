@@ -1,0 +1,14 @@
+#!/bin/bash
+
+StackName=ListRetweeter
+
+S3BucketArtifacts=your-artifact-bucket
+S3PrefixArtifacts=cloudformation/list-retweeter
+
+TwitterConsumerKey=xxx
+TwitterConsumerSecret=xxx
+TwitterAccessToken=xxx
+TwitterAccessTokenSecret=xxx
+
+TwitterListSlug=your-list-slug
+

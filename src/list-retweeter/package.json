@@ -1,0 +1,30 @@
+{
+	"name": "list-retweeter",
+	"version": "1.0.0",
+	"description": "Twitter List Retweeter",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/lafiosca/list-retweeter.git"
+	},
+	"keywords": [
+		"twitter",
+		"bot",
+		"list",
+		"retweeter"
+	],
+	"author": "Joe Lafiosca <joe@lafiosca.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/lafiosca/list-retweeter/issues"
+	},
+	"homepage": "https://github.com/lafiosca/list-retweeter#readme",
+	"dependencies": {
+		"lodash": "^4.17.10",
+		"nice-lambda": "^1.0.0",
+		"twit": "^2.2.10"
+	}
+}
