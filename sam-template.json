@@ -9,7 +9,8 @@
 		},
 		"TwitterConsumerSecret": {
 			"Type": "String",
-			"Description": "Twitter consumer secret for application"
+			"Description": "Twitter consumer secret for application",
+			"NoEcho": true
 		},
 		"TwitterAccessToken": {
 			"Type": "String",
@@ -17,7 +18,8 @@
 		},
 		"TwitterAccessTokenSecret": {
 			"Type": "String",
-			"Description": "Twitter access token secret for user to tweet as"
+			"Description": "Twitter access token secret for user to tweet as",
+			"NoEcho": true
 		},
 		"TwitterListSlug": {
 			"Type": "String",
